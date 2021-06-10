@@ -16,7 +16,7 @@ def get_args():
         description="Crow's nest -- choose the correct article",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('positional',
+    parser.add_argument('word',
                         metavar='word',
                         help='A word')
 
@@ -29,11 +29,11 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
-    word = args.positional
+    word = args.word
     char = word[0].lower()
     article = "an" if char in "aeiou" else "a"
-    f'Ahoy, Captain, {article} {word} off the larboard bow!'
-
+    print (f"Ahoy, Captain, {article} {word} off the larboard bow!")
+    
     
 
 
