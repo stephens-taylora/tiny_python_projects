@@ -16,7 +16,8 @@ def get_args():
         description='Picnic game',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('item', 
+    parser.add_argument('item',
+                        nargs = '+', 
                         metavar='str',
                         help='Item(s) to bring')
 
@@ -35,10 +36,22 @@ def main():
 
     args = get_args()
     item = args.item
+    num = len(item)
+
+    if args.sorted:
+        item.sort()
+
+    bringing = " "
+    if num == 1:
+        bringing = item[0]
+    elif num < 3:
+        bringing = ' and '.join(item)
+    else:
+        item[-1] = 'and ' + item[-1]
+        bringing = ', '.join(item)
 
 
-
-    print(f'You are bringing {item}!')
+    print(f'You are bringing {bringing}.')
     
 
 
